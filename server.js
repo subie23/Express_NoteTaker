@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 const fs = require('fs');
 
@@ -9,7 +9,7 @@ const htmlRoutes = require('./routes/htmlRoutes');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './Develop/public')));
 
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
