@@ -3,12 +3,12 @@ const {noteCreateNewNote,noteDeleteNote} = require('../../lib/note');
 let {notesArray} = require('../../Develop/db/db');
 
 
-router.get('../../Develop/db/db', (req, res) => {
+router.get('/db', (req, res) => {
     let results = notesArray;
     res.json(results);
 });
 
-router.post('../../Develop/db/db', (req, res) => {
+router.post('/db', (req, res) => {
     if(notesArray){
     req.body.id = notesArray.length.toString();
     } else 
@@ -16,7 +16,7 @@ router.post('../../Develop/db/db', (req, res) => {
     res.json(noteCreateNewNote(req.body, notesArray));
 });
 
-router.delete('/routes/apiRoutes/noteRoutes/:id', async function (req, res) {
+router.delete('/notes:id', async function (req, res) {
         const { id } = req.params;
         notesArray = noteDeleteNote(notesArray, id);
         res.json(notesArray);
